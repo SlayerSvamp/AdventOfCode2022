@@ -1,0 +1,46 @@
+@import './base.css';
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+
+  font-weight: normal;
+}
+
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    place-items: center;
+  }
+
+  #app {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 2rem;
+    gap: 5rem;
+  }
+}
+
+
+a {
+  color: var(--color-green);
+}
+
+a:hover:not(.no-hover) {
+  cursor: pointer;
+  color: var(--color-green-hover);
+  border-color: var(--color-green-hover);
+}
+
+a.active {
+  color: var(--color-green-active);
+  border-color: var(--color-green-active);
+  text-shadow: 0 0 .6rem var(--color-green-active);
+}
+
+a.disabled {
+  cursor: unset;
+  color: var(--color-dark);
+  border-color: var(--color-dark);
+}

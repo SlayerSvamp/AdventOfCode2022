@@ -1,0 +1,41 @@
+/* color palette from <https://github.com/vuejs/theme> */
+:root {
+  --color-green: #009900;
+  --color-green-hover: #99ff99;
+  --color-green-active: #00ff00cc;
+  --color-dark: #ffffff33;
+  --color-gray: #ffffff66;
+
+  --color-silver: #9999cc;
+  --color-gold: #ffff66;
+}
+
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 300;
+  src: url(https://fonts.gstatic.com/s/sourcecodepro/v22/HI_diYsKILxRpg3hIP6sJ7fM7PqPMcMnZFqUwX28DJKQtMdrTEUc.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  font-weight: normal;
+}
+
+body {
+  min-height: 100vh;
+  color: #cccccc;
+  background: #0f0f23;
+  transition: color 0.5s, background-color 0.5s;
+  line-height: 1.6;
+  font-family: "Source Code Pro", monospace;
+  font-size: 16px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
