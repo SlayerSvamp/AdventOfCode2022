@@ -29,8 +29,8 @@ a {
 
 a:hover:not(.no-hover) {
   cursor: pointer;
-  color: var(--color-green-hover);
-  border-color: var(--color-green-hover);
+  color: var(--color-green-active);
+  border-color: var(--color-green-active);
 }
 
 a.active {

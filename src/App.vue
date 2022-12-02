@@ -51,7 +51,7 @@ const days: Day[] = [
       'disabled': !day.solver,
       'active': !!day.solver && day.solver === selected?.solver,
     })" @click="selected = day; selectedNumber = index + 1;">
-      {{ days.indexOf(day) + 1 }}
+      [{{ `0${days.indexOf(day) + 1}`.slice(-2) }}]
     </a>
   </header>
   <main v-if="selected">
@@ -84,12 +84,7 @@ header>a {
   text-align: center;
   align-items: center;
   font-size: 2rem;
-  border-radius: .25rem;
   background-color: transparent;
-}
-
-header>a.active {
-  border: 1px solid;
 }
 
 main {
