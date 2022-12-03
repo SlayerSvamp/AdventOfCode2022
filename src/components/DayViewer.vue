@@ -34,7 +34,7 @@ function getStatus(value: any, test: boolean, index: number) {
 }
 
 async function getInput(test: boolean) {
-    const path = test ? '/data/test' : '/data'
+    const path = test ? 'data/test' : 'data'
     const num = `0${props.num}`.slice(-2)
     const url = `${path}/day${num}.txt`
     return await fetch(url).then(x => x.text());
