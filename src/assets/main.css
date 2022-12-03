@@ -44,3 +44,7 @@ a.disabled {
   color: var(--color-dark);
   border-color: var(--color-dark);
 }
+
+.color-gray {
+  color: var(--color-gray);
+}

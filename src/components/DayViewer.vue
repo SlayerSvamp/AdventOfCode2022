@@ -60,7 +60,8 @@ const copy = (value: any) => navigator.clipboard.writeText(value);
 
 <template>
     <div>
-        <h1>Day {{ props.num }}: {{ props.day.name }}</h1>
+        <h2 className="color-gray">Day {{ props.num }}:</h2>
+        <h1>{{ props.day.name }}</h1>
         <div v-if="props.day.solver" class="buttons">
             <a id="test-button" @click="runSolver(true)">[Test]</a>
             <a id="run-button" @click="runSolver(false)">[Run]</a>
