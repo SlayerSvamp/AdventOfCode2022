@@ -4,6 +4,7 @@ import DayViewer from './components/DayViewer.vue'
 import day01 from './solvers/day01'
 import day02 from './solvers/day02'
 import day03 from './solvers/day03';
+import day04 from './solvers/day04';
 import { classnames } from './utils/common';
 
 export interface Day {
@@ -20,7 +21,7 @@ const days: Day[] = [
   { name: 'Calorie Counting', solver: day01, correct: [67450, 199357], correctTest: [24000, 45000] },
   { name: 'Rock Paper Scissors', solver: day02, correct: [12740, 11980], correctTest: [15, 12] },
   { name: 'Rucksack Reorganization', solver: day03, correct: [7826, 2577], correctTest: [157, 70] },
-  { name: '', solver: undefined, correct: [], correctTest: [] },
+  { name: 'Camp Cleanup', solver: day04, correct: [560, 839], correctTest: [2, 4] },
   { name: '', solver: undefined, correct: [], correctTest: [] },
   { name: '', solver: undefined, correct: [], correctTest: [] },
   { name: '', solver: undefined, correct: [], correctTest: [] },
