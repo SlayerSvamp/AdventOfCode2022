@@ -37,7 +37,8 @@ async function getInput(test: boolean) {
     const path = test ? 'data/test' : 'data'
     const num = `0${props.num}`.slice(-2)
     const url = `${path}/day${num}.txt`
-    return await fetch(url).then(x => x.text());
+    const text = await fetch(url).then(x => x.text());
+    return text.replace(/\r\n/g, '\n')
 }
 
 async function runSolver(test: boolean) {

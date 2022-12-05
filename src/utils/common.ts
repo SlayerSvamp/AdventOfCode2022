@@ -1,5 +1,9 @@
-export const groups = (x: string) => x.split(/(\r?\n){2}/)
-export const rows = (x: string) => x.split(/\r?\n/)
+export const rows = (x: string) => x.split(/\n/)
+export const groups = (x: string) => rows(x).reduce((a, c) => {
+    if (!c.trim()) a.push([]);
+    else a[a.length - 1].push(c);
+    return a;
+}, [[]] as string[][])
 export const ints = (x: string[]) => x.map(x => +x)
 export const sum = (x: number[]) => x.reduce((a, c) => a + c, 0)
 export const asc = (x: number[]) => x.sort((l, r) => l - r)
