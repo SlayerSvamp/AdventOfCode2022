@@ -6,6 +6,7 @@ import day02 from './solvers/day02'
 import day03 from './solvers/day03';
 import day04 from './solvers/day04';
 import day05 from './solvers/day05';
+import day06 from './solvers/day06';
 import { classnames } from './utils/common';
 
 export interface Day {
@@ -24,7 +25,7 @@ const days: Day[] = [
   { name: 'Rucksack Reorganization', solver: day03, correct: [7826, 2577], correctTest: [157, 70] },
   { name: 'Camp Cleanup', solver: day04, correct: [560, 839], correctTest: [2, 4] },
   { name: 'Supply Stacks', solver: day05, correct: ['MQSHJMWNH', 'LLWJRBHVZ'], correctTest: ['CMZ', 'MCD'] },
-  { name: '', solver: undefined, correct: [], correctTest: [] },
+  { name: 'Tuning Trouble', solver: day06, correct: [1802, 3551], correctTest: [7, 19] },
   { name: '', solver: undefined, correct: [], correctTest: [] },
   { name: '', solver: undefined, correct: [], correctTest: [] },
   { name: '', solver: undefined, correct: [], correctTest: [] },
