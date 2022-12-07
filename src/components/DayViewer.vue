@@ -56,6 +56,7 @@ async function runSolver(test: boolean) {
 }
 
 const copy = (value: any) => navigator.clipboard.writeText(value);
+const hasNewline = (value: any) => typeof value === 'string' && value.includes('\n')
 
 </script>
 
@@ -99,7 +100,7 @@ const copy = (value: any) => navigator.clipboard.writeText(value);
                         <span>{{ metricValue }}</span>
                     </div>
                     <template v-if="info">
-                        <div v-for="(infoValue, infoName) in info">
+                        <div v-for="(infoValue, infoName) in info" :class="hasNewline(infoValue) ? 'wide' : ''">
                             <label>{{ infoName }}</label>
                             <span>{{ infoValue }}</span>
                         </div>
@@ -127,8 +128,13 @@ const copy = (value: any) => navigator.clipboard.writeText(value);
     gap: 1rem;
 }
 
-.info-cols>:not(div) {
+.info-cols>:not(div),
+.info-cols>.wide {
     grid-column: 1/-1;
+}
+
+.info-cols>.wide>:not(label) {
+    white-space: pre-wrap;
 }
 
 .info-cols>div {
