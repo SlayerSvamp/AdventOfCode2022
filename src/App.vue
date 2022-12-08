@@ -3,12 +3,13 @@ import { ref } from 'vue';
 import DayViewer from './components/DayViewer.vue'
 import day01 from './solvers/day01'
 import day02 from './solvers/day02'
-import day03 from './solvers/day03';
-import day04 from './solvers/day04';
-import day05 from './solvers/day05';
-import day06 from './solvers/day06';
-import day07 from './solvers/day07';
-import { classnames } from './utils/common';
+import day03 from './solvers/day03'
+import day04 from './solvers/day04'
+import day05 from './solvers/day05'
+import day06 from './solvers/day06'
+import day07 from './solvers/day07'
+import day08 from './solvers/day08'
+import { classnames } from './utils/common'
 
 export interface Day {
   name: string;
@@ -28,7 +29,7 @@ const days: Day[] = [
   { name: 'Supply Stacks', solver: day05, correct: ['MQSHJMWNH', 'LLWJRBHVZ'], correctTest: ['CMZ', 'MCD'] },
   { name: 'Tuning Trouble', solver: day06, correct: [1802, 3551], correctTest: [7, 19] },
   { name: 'No Space Left On Device', solver: day07, correct: [1989474, 1111607], correctTest: [95437, 24933642] },
-  { name: '', solver: undefined, correct: [], correctTest: [] },
+  { name: 'Treetop Tree House', solver: day08, correct: [1672, 327180], correctTest: [21, 8] },
   { name: '', solver: undefined, correct: [], correctTest: [] },
   { name: '', solver: undefined, correct: [], correctTest: [] },
   { name: '', solver: undefined, correct: [], correctTest: [] },
