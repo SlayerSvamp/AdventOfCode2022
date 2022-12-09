@@ -17,8 +17,9 @@ export const range = (start: number, stop?: number, step: number = 1) => {
     }
     return result
 }
+export const direction = (v: number) => v > 0 ? 1 : v < 0 ? -1 : 0
+
 export const values = <T extends object>(obj: T) => Object.keys(obj).map(x => obj[x as keyof T])
-export const entries = <T extends object>(obj: T) => Object.keys(obj).map(x => [x, obj[x as keyof T]] as [keyof T, T[keyof T]])
 
 export const classnames = (...classes: (string | { [key: string]: boolean })[]) =>
     classes.map(x =>
