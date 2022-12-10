@@ -9,7 +9,8 @@ import day05 from './solvers/day05'
 import day06 from './solvers/day06'
 import day07 from './solvers/day07'
 import day08 from './solvers/day08'
-import day09 from './solvers/day09';
+import day09 from './solvers/day09'
+import day10 from './solvers/day10'
 import { classnames } from './utils/common'
 
 export interface Day {
@@ -32,7 +33,23 @@ const days: Day[] = [
   { name: 'No Space Left On Device', solver: day07, correct: [1989474, 1111607], correctTest: [95437, 24933642] },
   { name: 'Treetop Tree House', solver: day08, correct: [1672, 327180], correctTest: [21, 8] },
   { name: 'Rope Bridge', solver: day09, correct: [6464, 2604], correctTest: [13, 1] },
-  { name: '', solver: undefined, correct: [], correctTest: [] },
+  {
+    name: 'Cathode-Ray Tube', solver: day10,
+    correct: [13520, [
+      '###...##..###..#..#.###..####..##..###..',
+      '#..#.#..#.#..#.#..#.#..#.#....#..#.#..#.',
+      '#..#.#....#..#.####.###..###..#..#.###..',
+      '###..#.##.###..#..#.#..#.#....####.#..#.',
+      '#....#..#.#....#..#.#..#.#....#..#.#..#.',
+      '#.....###.#....#..#.###..####.#..#.###..'].join('\n')],
+    correctTest: [13140, [
+      '##..##..##..##..##..##..##..##..##..##..',
+      '###...###...###...###...###...###...###.',
+      '####....####....####....####....####....',
+      '#####.....#####.....#####.....#####.....',
+      '######......######......######......####',
+      '#######.......#######.......#######.....'].join('\n')],
+  },
   { name: '', solver: undefined, correct: [], correctTest: [] },
   { name: '', solver: undefined, correct: [], correctTest: [] },
   { name: '', solver: undefined, correct: [], correctTest: [] },

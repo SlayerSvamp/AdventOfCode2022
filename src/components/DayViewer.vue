@@ -23,13 +23,14 @@ let part2Status = ref(Status.None)
 let running = ref(false)
 
 function getStatus(value: any, test: boolean, index: number) {
-    var correct = test ? props.day.correctTest : props.day.correct;
-    if (correct[index] === undefined) {
-        return Status.None;
-    } else if (correct[index] === value) {
-        return Status.Verified;
-    }
-    return Status.Error;
+    let correct = test ? props.day.correctTest : props.day.correct
+    let status = Status.Error
+    if (correct[index] === undefined)
+        status = Status.None
+    else if (correct[index] === value)
+        status = Status.Verified
+
+    return [status, correct[index]]
 
 }
 
@@ -48,11 +49,16 @@ async function runSolver(test: boolean) {
     const start = new Date().valueOf()
     const input = await getInput(test);
     [part1, part2, info] = props.day.solver?.(input) ?? []
-    part1Status.value = getStatus(part1, test, 0)
-    part2Status.value = getStatus(part2, test, 1)
+    let [status1, correct1] = getStatus(part1, test, 0)
+    let [status2, correct2] = getStatus(part2, test, 1)
+    part1Status.value = status1
+    part2Status.value = status2
     const end = new Date().valueOf()
     metrics.value = { 'elapsed time': `${end - start} ms` }
-    running.value = false
+    if (status1 === Status.Error) metrics.value['Part One expected value'] = correct1
+    if (status2 === Status.Error) metrics.value['Part Two expected value'] = correct2
+    if (part1Status)
+        running.value = false
 }
 
 const copy = (value: any) => navigator.clipboard.writeText(value);
@@ -76,16 +82,16 @@ const hasNewline = (value: any) => typeof value === 'string' && value.includes('
         <h2 v-if="running" class="">Running process...</h2>
         <template v-if="!running">
             <div class="results info-cols">
-                <div>
-                    <label>Part 1</label>
+                <div :class="hasNewline(part1) ? 'wide' : ''">
+                    <label>Part One</label>
                     <span v-if="!part1" class="no-data"></span>
                     <span><a v-if="part1" :class="classnames('result no-hover', {
                         'verified': part1Status === Status.Verified,
                         'error': part1Status === Status.Error,
                     })" @click="copy(part1)">{{ part1 }}</a></span>
                 </div>
-                <div>
-                    <label>Part 2</label>
+                <div :class="hasNewline(part2) ? 'wide' : ''">
+                    <label>Part Two</label>
                     <span v-if="!part2" class="no-data"></span>
                     <span><a v-if="part2" :class="classnames('result no-hover', {
                         'verified': part2Status === Status.Verified,
@@ -95,16 +101,14 @@ const hasNewline = (value: any) => typeof value === 'string' && value.includes('
             </div>
             <template v-if="metrics">
                 <div class="info-cols">
-                    <div v-for="(metricValue, metricName) in metrics">
+                    <div v-for="(metricValue, metricName) in metrics" :class="hasNewline(metricValue) ? 'wide' : ''">
                         <label>{{ metricName }}</label>
                         <span>{{ metricValue }}</span>
                     </div>
-                    <template v-if="info">
-                        <div v-for="(infoValue, infoName) in info" :class="hasNewline(infoValue) ? 'wide' : ''">
-                            <label>{{ infoName }}</label>
-                            <span>{{ infoValue }}</span>
-                        </div>
-                    </template>
+                    <div v-if="info" v-for="(infoValue, infoName) in info" :class="hasNewline(infoValue) ? 'wide' : ''">
+                        <label>{{ infoName }}</label>
+                        <span>{{ infoValue }}</span>
+                    </div>
                 </div>
             </template>
         </template>
@@ -135,6 +139,8 @@ const hasNewline = (value: any) => typeof value === 'string' && value.includes('
 
 .info-cols>.wide>:not(label) {
     white-space: pre-wrap;
+    padding-top: .6rem;
+    line-height: 1.5rem;
 }
 
 .info-cols>div {
