@@ -11,6 +11,7 @@ import day07 from './solvers/day07'
 import day08 from './solvers/day08'
 import day09 from './solvers/day09'
 import day10 from './solvers/day10'
+import day11 from './solvers/day11'
 import { classnames } from './utils/common'
 
 export interface Day {
@@ -50,7 +51,7 @@ const days: Day[] = [
       '######......######......######......####',
       '#######.......#######.......#######.....'].join('\n')],
   },
-  { name: '', solver: undefined, correct: [], correctTest: [] },
+  { name: 'Monkey in the Middle', solver: day11, correct: [112815, 25738411485], correctTest: [10605, 2713310158] },
   { name: '', solver: undefined, correct: [], correctTest: [] },
   { name: '', solver: undefined, correct: [], correctTest: [] },
   { name: '', solver: undefined, correct: [], correctTest: [] },
