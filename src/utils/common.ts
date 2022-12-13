@@ -17,6 +17,7 @@ export const range = (start: number, stop?: number, step: number = 1) => {
     }
     return result
 }
+export const zip = <T, U>(left: T[], right: U[]) => range(Math.min(left.length, right.length)).map((_, i) => [left[i], right[i]])
 export const direction = (v: number) => v > 0 ? 1 : v < 0 ? -1 : 0
 
 export const values = <T extends object>(obj: T) => Object.keys(obj).map(x => obj[x as keyof T])
