@@ -78,14 +78,14 @@ const hasNewline = (value: any) => typeof value === 'string' && value.includes('
     <div v-if="!props.day.solver">
         I've got nothing to show here yet!
     </div>
-    <template v-if="props.day.solver">
+    <template v-else>
         <h2 v-if="running" class="">Running process...</h2>
         <template v-if="!running">
             <div class="results info-cols">
                 <div :class="hasNewline(part1) ? 'wide' : ''">
                     <label>Part One</label>
                     <span v-if="!part1" class="no-data"></span>
-                    <span><a v-if="part1" :class="classnames('result no-hover', {
+                    <span v-else><a :class="classnames('result no-hover', {
                         'verified': part1Status === Status.Verified,
                         'error': part1Status === Status.Error,
                     })" @click="copy(part1)">{{ part1 }}</a></span>
@@ -93,10 +93,16 @@ const hasNewline = (value: any) => typeof value === 'string' && value.includes('
                 <div :class="hasNewline(part2) ? 'wide' : ''">
                     <label>Part Two</label>
                     <span v-if="!part2" class="no-data"></span>
-                    <span><a v-if="part2" :class="classnames('result no-hover', {
+                    <span v-else><a :class="classnames('result no-hover', {
                         'verified': part2Status === Status.Verified,
                         'error': part2Status === Status.Error,
-                    })" @click="copy(part2)">{{ part2 }}</a></span>
+                    })" @click="copy(part2)">
+                            <template v-if="props.num === 10" v-for="c in part2">
+                                <span v-if="c === '.'" style="opacity: .05;">{{ c }}</span>
+                                <span v-else>{{ c }}</span>
+                            </template>
+                            <span v-else>{{ part2 }}</span>
+                        </a></span>
                 </div>
             </div>
             <template v-if="metrics">
@@ -107,7 +113,18 @@ const hasNewline = (value: any) => typeof value === 'string' && value.includes('
                     </div>
                     <div v-if="info" v-for="(infoValue, infoName) in info" :class="hasNewline(infoValue) ? 'wide' : ''">
                         <label>{{ infoName }}</label>
-                        <span>{{ infoValue }}</span>
+                        <span v-if="props.num === 14">
+                            <template v-for="c of infoValue">
+                                <template v-if="c === '\n'">{{ c }}</template>
+                                <span v-else-if="c === '.'" style="opacity: .05">{{ c }}</span>
+                                <span v-else-if="c === '+'" style="color: sandybrown">{{ c }}</span>
+                                <span v-else-if="c === '#'" style="color: slategray">{{ c }}</span>
+                                <span v-else-if="c === 'o'" style="color: bisque">{{ c }}</span>
+                                <span v-else-if="c === '~'" style="color: tan">{{ c }}</span>
+                            </template>
+                        </span>
+                        <span v-else>{{ infoValue }}</span>
+
                     </div>
                 </div>
             </template>

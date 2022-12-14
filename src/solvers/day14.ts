@@ -24,7 +24,6 @@ export default (input: string): any[] => {
         [prev, ...wall] = wall
         while (wall.length) {
             [current, ...wall] = wall
-            console.log(prev, current)
             const [xfrom, xto] = [prev[0], current[0]].sort().map((x, i) => x + i)
             const [yfrom, yto] = [prev[1], current[1]].sort().map((y, i) => y + i)
             xmin = Math.min(xmin, xfrom)
