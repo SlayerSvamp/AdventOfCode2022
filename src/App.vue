@@ -15,7 +15,8 @@ import day11 from './solvers/day11'
 import day12 from './solvers/day12'
 import day13 from './solvers/day13'
 import day14 from './solvers/day14'
-import day15 from './solvers/day15';
+import day15 from './solvers/day15'
+import day16 from './solvers/day16'
 import { classnames } from './utils/common'
 
 export interface Day {
@@ -60,7 +61,7 @@ const days: Day[] = [
   { name: 'Distress Signal', solver: day13, correct: [5675, 20383], correctTest: [13, 140] },
   { name: 'Regolith Reservoir', solver: day14, correct: [665, 25434], correctTest: [24, 93] },
   { name: 'Beacon Exclusion Zone', solver: day15, correct: [5525847, 13340867187704], correctTest: [26, 56000011] },
-  { name: '', solver: undefined, correct: [], correctTest: [] },
+  { name: 'Proboscidea Volcanium', solver: day16, correct: [], correctTest: [1651] },
   { name: '', solver: undefined, correct: [], correctTest: [] },
   { name: '', solver: undefined, correct: [], correctTest: [] },
   { name: '', solver: undefined, correct: [], correctTest: [] },
