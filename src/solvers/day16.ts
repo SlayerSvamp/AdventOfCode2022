@@ -27,33 +27,48 @@ export default (input: string): any[] => {
             distance++
         }
     }
-
-    const hash = (set: Set<string>, c: string) => [...set].sort().join() + '.' + c
-    const seen: { [key: string]: number } = {}
-    const queue: [number, number, string, Set<string>][] = [[0, 30, "AA", new Set(keys)]]
-    
-    let max = 0
-    while (queue.length) {
-        let [released, time, current, left] = queue.pop()!
-        released += valves[current].flow * time
-        if (max < released) {
-            max = released
-            console.log(`max: ${max}, queue: ${queue.length}, seen: ${Object.keys(seen).length}`)
-        }
-        const hashed = hash(left, current)
-        if (seen[hashed] >= released) continue
-        seen[hashed] = released
-        for (let next of left) {
-            const cost = costs[current][next]
-            const nextLeft = new Set(left)
-            nextLeft.delete(next)
-            nextLeft.forEach(x => costs[next][x] > time - cost ? nextLeft.delete(x) : {})
-            if (time > cost)
-                queue.push([released, time - cost, next, nextLeft])
-        }
+    type State = {
+        actors: [number, string][];
+        released: number;
+        left: Set<string>
     }
+    const copy = (actor: State['actors'][0]) => JSON.parse(JSON.stringify(actor)) as typeof actor
+    const hash = (set: Set<string>) => [...set].sort().join('')
+    const run = (part: number) => {
+        const maxValues: { [key: string]: number } = {}
+        const queue: State[] = [{
+            actors: Array.from({ length: part }).map(() => [[30, 26][part - 1], "AA"]),
+            released: 0,
+            left: new Set(keys.filter(x => valves[x].flow > 0))
+        }]
 
-    return [Math.max(...Object.values(seen)), , {
+        let state: State | undefined
+        while (state = queue.pop()) {
+            for (let i of state.actors.keys()) {
+                let { released } = state
+                const [time, valve] = state.actors[i]
+                released += valves[valve].flow * time
+                const hashed = hash(state.left)
+                if (maxValues[hashed] > released) continue
+                maxValues[hashed] = released
+                for (let next of state.left) {
+                    const left = new Set(state.left)
+                    const cost = costs[valve][next]
+                    left.delete(next)
+                    if (time > cost) {
+                        const actors = state.actors.map(copy)
+                        actors[i] = [time - cost, next]
+                        queue.unshift({ released, left, actors })
+                    }
+                }
+            }
+        }
+        return Math.max(...Object.values(maxValues))
+    }
+    const maxReleasedAlone = run(1)
+    const maxReleasedWithElephant = run(2)
+
+    return [maxReleasedAlone, maxReleasedWithElephant, {
 
     }]
 }
