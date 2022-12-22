@@ -1,3 +1,5 @@
+import { rows } from "@/utils/common";
+
 interface Monkey {
     name: string;
     value: number | undefined;
@@ -8,8 +10,7 @@ interface Monkey {
 
 export default (input: string): any[] => {
     const ops = /[+*/-]/;
-    const monkeyList = input
-        .split("\n")
+    const monkeyList = rows(input)
         .map((x) => x.split(/: /))
         .map<Monkey>(([name, data]) => ({
             name,

@@ -21,6 +21,7 @@ import day17 from './solvers/day17';
 import day18 from './solvers/day18';
 import day19 from './solvers/day19';
 import day20 from './solvers/day20';
+import day21 from './solvers/day21';
 import { classnames } from './utils/common'
 
 export interface Day {
@@ -70,7 +71,7 @@ const days: Day[] = [
   { name: 'Boiling Boulders', solver: day18, correct: [3564, 2106], correctTest: [64, 58] },
   { name: 'Not Enough Minerals', solver: day19, correct: [], correctTest: [33] },
   { name: 'Grove Positioning System', solver: day20, correct: [8721, 831878881825], correctTest: [3, 1623178306] },
-  { name: '', solver: undefined, correct: [], correctTest: [] },
+  { name: 'Monkey Math', solver: day21, correct: [93813115694560], correctTest: [152, 301] },
   { name: '', solver: undefined, correct: [], correctTest: [] },
   { name: '', solver: undefined, correct: [], correctTest: [] },
   { name: '', solver: undefined, correct: [], correctTest: [] },
