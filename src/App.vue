@@ -71,7 +71,7 @@ const days: Day[] = [
   { name: 'Boiling Boulders', solver: day18, correct: [3564, 2106], correctTest: [64, 58] },
   { name: 'Not Enough Minerals', solver: day19, correct: [], correctTest: [33] },
   { name: 'Grove Positioning System', solver: day20, correct: [8721, 831878881825], correctTest: [3, 1623178306] },
-  { name: 'Monkey Math', solver: day21, correct: [93813115694560], correctTest: [152, 301] },
+  { name: 'Monkey Math', solver: day21, correct: [93813115694560, 3910938071092], correctTest: [152, 301] },
   { name: '', solver: undefined, correct: [], correctTest: [] },
   { name: '', solver: undefined, correct: [], correctTest: [] },
   { name: '', solver: undefined, correct: [], correctTest: [] },
