@@ -24,6 +24,7 @@ import day20 from './solvers/day20';
 import day21 from './solvers/day21';
 import day22 from './solvers/day22';
 import day23 from './solvers/day23';
+import day24 from './solvers/day24';
 import { classnames } from './utils/common'
 
 export interface Day {
@@ -76,7 +77,7 @@ const days: Day[] = [
   { name: 'Monkey Math', solver: day21, correct: [93813115694560, 3910938071092], correctTest: [152, 301] },
   { name: 'Monkey Map', solver: day22, correct: [31568], correctTest: [6032, 5031] },
   { name: 'Unstable Diffusion', solver: day23, correct: [3906, 895], correctTest: [110, 20] },
-  { name: '', solver: undefined, correct: [], correctTest: [] },
+  { name: 'Blizzard Basin', solver: day24, correct: [326, 976], correctTest: [18, 54] },
   { name: '', solver: undefined, correct: [], correctTest: [] },
 ]
 </script>
