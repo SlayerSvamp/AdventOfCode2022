@@ -17,15 +17,15 @@ import day13 from './solvers/day13'
 import day14 from './solvers/day14'
 import day15 from './solvers/day15'
 import day16 from './solvers/day16'
-import day17 from './solvers/day17';
-import day18 from './solvers/day18';
-import day19 from './solvers/day19';
-import day20 from './solvers/day20';
-import day21 from './solvers/day21';
-import day22 from './solvers/day22';
-import day23 from './solvers/day23';
-import day24 from './solvers/day24';
-import day25 from './solvers/day25';
+import day17 from './solvers/day17'
+import day18 from './solvers/day18'
+import day19 from './solvers/day19'
+import day20 from './solvers/day20'
+import day21 from './solvers/day21'
+import day22 from './solvers/day22'
+import day23 from './solvers/day23'
+import day24 from './solvers/day24'
+import day25 from './solvers/day25'
 import { classnames } from './utils/common'
 
 export interface Day {
@@ -70,7 +70,7 @@ const days: Day[] = [
   { name: 'Distress Signal', solver: day13, correct: [5675, 20383], correctTest: [13, 140] },
   { name: 'Regolith Reservoir', solver: day14, correct: [665, 25434], correctTest: [24, 93] },
   { name: 'Beacon Exclusion Zone', solver: day15, correct: [5525847, 13340867187704], correctTest: [26, 56000011] },
-  { name: 'Proboscidea Volcanium', solver: day16, correct: [2253], correctTest: [1651, 1707] },
+  { name: 'Proboscidea Volcanium', solver: day16, correct: [2253, 2838], correctTest: [1651, 1707] },
   { name: 'Pyroclastic Flow', solver: day17, correct: [3144, 1565242165201], correctTest: [3068, 1514285714288] },
   { name: 'Boiling Boulders', solver: day18, correct: [3564, 2106], correctTest: [64, 58] },
   { name: 'Not Enough Minerals', solver: day19, correct: [], correctTest: [33] },

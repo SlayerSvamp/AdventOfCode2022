@@ -1,4 +1,4 @@
-import { ints, rows, sum } from "@/utils/common"
+import { rows, sum } from "@/utils/common"
 
 const decimal = (snafu: string) => {
     let place = 1
