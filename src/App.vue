@@ -79,7 +79,7 @@ const days: Day[] = [
   { name: 'Monkey Map', solver: day22, correct: [31568], correctTest: [6032, 5031] },
   { name: 'Unstable Diffusion', solver: day23, correct: [3906, 895], correctTest: [110, 20] },
   { name: 'Blizzard Basin', solver: day24, correct: [326, 976], correctTest: [18, 54] },
-  { name: 'Full of Hot Air', solver: day25, correct: [], correctTest: ['2=-1=0'] },
+  { name: 'Full of Hot Air', solver: day25, correct: ['2=20---01==222=0=0-2'], correctTest: ['2=-1=0'] },
 ]
 </script>
 
