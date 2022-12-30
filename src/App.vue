@@ -73,7 +73,7 @@ const days: Day[] = [
   { name: 'Proboscidea Volcanium', solver: day16, correct: [2253, 2838], correctTest: [1651, 1707] },
   { name: 'Pyroclastic Flow', solver: day17, correct: [3144, 1565242165201], correctTest: [3068, 1514285714288] },
   { name: 'Boiling Boulders', solver: day18, correct: [3564, 2106], correctTest: [64, 58] },
-  { name: 'Not Enough Minerals', solver: day19, correct: [], correctTest: [33] },
+  { name: 'Not Enough Minerals', solver: day19, correct: [1389, 3003], correctTest: [33, 3472] },
   { name: 'Grove Positioning System', solver: day20, correct: [8721, 831878881825], correctTest: [3, 1623178306] },
   { name: 'Monkey Math', solver: day21, correct: [93813115694560, 3910938071092], correctTest: [152, 301] },
   { name: 'Monkey Map', solver: day22, correct: [31568], correctTest: [6032, 5031] },
